@@ -23,6 +23,8 @@ export default {
   --secondary-color: maroon;
   --secondary-color-hover: rgb(129, 80, 80);
   --grey: #ccc;
+
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
 * {
@@ -37,5 +39,6 @@ body {
 .container {
   padding: 0 1rem;
   max-width: 800px;
+  margin: auto;
 }
 </style>

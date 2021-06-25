@@ -17,28 +17,54 @@
       <base-button type="submit">Add resource</base-button>
     </form>
   </base-card>
+  <base-dialog v-if="!isValidData" title="Invalid data" @close="closeDialog">
+    <template #default>
+      <p>
+        Some of the form fields are invalid. Please check it and fill all the
+        fields.
+      </p>
+    </template>
+    <template #actions>
+      <base-button @click="closeDialog">Close</base-button>
+    </template>
+  </base-dialog>
 </template>
 
 <script>
 import BaseButton from '../UI/BaseButton.vue';
+import BaseDialog from '../UI/BaseDialog.vue';
 export default {
-  components: { BaseButton },
+  components: { BaseButton, BaseDialog },
   inject: ['addResource'],
   data() {
     return {
       enteredTitle: '',
       enteredDescription: '',
       enteredLink: '',
+
+      isValidData: true,
     };
   },
   methods: {
     submitData() {
+      if (
+        this.enteredTitle.trim() === '' ||
+        this.enteredDescription.trim() === '' ||
+        this.enteredLink.trim() === ''
+      ) {
+        this.isValidData = false;
+        return;
+      }
+
       this.addResource(
         this.enteredTitle,
         this.enteredDescription,
         this.enteredLink
       );
       this.$refs['new-resource-form'].reset();
+    },
+    closeDialog() {
+      this.isValidData = true;
     },
   },
 };

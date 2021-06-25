@@ -54,6 +54,7 @@ export default {
     return {
       resources: this.resources,
       addResource: this.addResource,
+      removeResource: this.removeResource,
     };
   },
   methods: {
@@ -61,7 +62,6 @@ export default {
       this.activeTab = tab;
     },
     addResource(title, description, link) {
-      console.log('add res');
       const newResource = {
         id: Date.now().toLocaleString(),
         title,
@@ -71,6 +71,13 @@ export default {
 
       this.resources.unshift(newResource);
       this.activeTab = 'the-list';
+    },
+    removeResource(id) {
+      console.log('delete', id);
+      // TODO: добавить диалог с уточненением точно ли юзер хочет удалить ресурс
+      //   this.resources = this.resources.filter(el => el.id !== id);
+      const ind = this.resources.findIndex(el => el.id === id);
+      this.resources.splice(ind, 1);
     },
   },
 };

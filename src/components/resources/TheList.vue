@@ -2,6 +2,7 @@
   <ul class="list">
     <ListItem v-for="item in resources" :key="item" v-bind="item" />
   </ul>
+  <h4 v-if="!resources.length">There is nothing here yet!</h4>
 </template>
 
 <script>
@@ -21,6 +22,10 @@ export default {
   grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
   padding: 1rem 0;
+  margin: 0;
+}
+
+h4 {
   margin: 0;
 }
 
