@@ -1,15 +1,26 @@
 <template>
   <ul class="list">
-    <slot></slot>
+    <ListItem v-for="item in resources" :key="item" v-bind="item" />
   </ul>
 </template>
+
+<script>
+import ListItem from './ListItem.vue';
+
+export default {
+  inject: ['resources'],
+  components: {
+    ListItem,
+  },
+};
+</script>
 
 <style scoped>
 .list {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem 0;
   margin: 0;
 }
 

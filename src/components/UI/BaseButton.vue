@@ -1,5 +1,5 @@
 <template>
-  <button type="button" :class="mode">
+  <button :class="mode">
     <slot></slot>
   </button>
 </template>
@@ -17,10 +17,11 @@ button {
   background-color: var(--secondary-color);
   color: white;
   padding: 0.5rem 0.8rem;
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   text-decoration: none;
   border: none;
   cursor: pointer;
+  align-self: center;
 }
 
 button:hover {
@@ -28,5 +29,10 @@ button:hover {
 }
 
 .flat {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+.flat:hover {
+  background-color: var(--grey);
 }
 </style>

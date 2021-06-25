@@ -1,38 +1,16 @@
 <template>
   <TheHeader />
-  <List>
-    <ListItem v-for="item in resources" :key="item" v-bind="item" />
-  </List>
+  <TheResources />
 </template>
 
 <script>
 import TheHeader from './components/layout/TheHeader.vue';
-import List from './components/List.vue';
-import ListItem from './components/ListItem.vue';
+import TheResources from './components/resources/TheResources.vue';
 
 export default {
   components: {
     TheHeader,
-    List,
-    ListItem,
-  },
-  data() {
-    return {
-      resources: [
-        {
-          id: 1,
-          title: 'Guide',
-          description: 'documentation',
-          link: 'https://vuejs.org',
-        },
-        {
-          id: 2,
-          title: 'Google',
-          description: 'search engine',
-          link: 'https://google.com',
-        },
-      ],
-    };
+    TheResources,
   },
 };
 </script>
@@ -54,5 +32,10 @@ export default {
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  padding: 0 1rem;
+  max-width: 800px;
 }
 </style>
