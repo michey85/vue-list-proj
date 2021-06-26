@@ -1,6 +1,6 @@
 <template>
   <base-card>
-    <h2>Add resourse</h2>
+    <h2>Add a new resourse</h2>
     <form @submit.prevent="submitData" ref="new-resource-form">
       <label>
         Resource Title
@@ -8,11 +8,11 @@
       </label>
       <label>
         Resource Description
-        <textarea type="text" v-model="enteredDescription" rows="4"></textarea>
+        <textarea type="text" v-model="enteredDescription" rows="5"></textarea>
       </label>
       <label>
         Resource Link
-        <input type="url" v-model="enteredLink" />
+        <input type="url" v-model="enteredLink" placeholder="https://" />
       </label>
       <base-button type="submit">Add resource</base-button>
     </form>
@@ -92,5 +92,8 @@ input,
 textarea {
   padding: 0.5rem 0.8rem;
   border: 1px solid var(--grey);
+
+  width: 100%;
+  max-width: 30rem;
 }
 </style>

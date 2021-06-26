@@ -29,14 +29,14 @@ export default {
       resources: [
         {
           id: 1,
-          title: 'Guide',
-          description: 'documentation',
+          title: 'Official Vue Guide',
+          description: 'Official Vue documentation. 9 languages.',
           link: 'https://vuejs.org',
         },
         {
           id: 2,
           title: 'Google',
-          description: 'search engine',
+          description: 'Most popular search engine. Try it when you need help.',
           link: 'https://google.com',
         },
       ],
@@ -73,9 +73,7 @@ export default {
       this.activeTab = 'the-list';
     },
     removeResource(id) {
-      console.log('delete', id);
       // TODO: добавить диалог с уточненением точно ли юзер хочет удалить ресурс
-      //   this.resources = this.resources.filter(el => el.id !== id);
       const ind = this.resources.findIndex(el => el.id === id);
       this.resources.splice(ind, 1);
     },
@@ -83,4 +81,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+</style>

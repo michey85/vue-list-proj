@@ -20,8 +20,8 @@ export default {
 .list {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 1rem;
-  padding: 1rem 0;
+  gap: 1.75rem;
+  padding: 0;
   margin: 0;
 }
 

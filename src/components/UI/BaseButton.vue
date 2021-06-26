@@ -17,11 +17,11 @@ button {
   background-color: var(--secondary-color);
   color: white;
   padding: 0.5rem 0.8rem;
-  /* border-radius: 1rem; */
   text-decoration: none;
   border: none;
   cursor: pointer;
   align-self: center;
+  font-size: 1.2rem;
 }
 
 button:hover {

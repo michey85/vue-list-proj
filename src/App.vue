@@ -18,13 +18,15 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 :root {
-  --primary-color: red;
-  --primary-color-hover: rgb(243, 165, 165);
-  --secondary-color: maroon;
-  --secondary-color-hover: rgb(129, 80, 80);
-  --grey: #ccc;
+  --primary-color: #c53030;
+  --primary-color-hover: #f56565;
+  --secondary-color: #805ad5;
+  --secondary-color-hover: #b794f4;
+  --grey: #e2e8f0;
 
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+
+  --radius-base: 1rem;
 }
 
 * {

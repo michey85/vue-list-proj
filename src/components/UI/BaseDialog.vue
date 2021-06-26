@@ -48,7 +48,7 @@ dialog {
   left: 10%;
   width: 80%;
   z-index: 100;
-  border-radius: 1rem;
+  border-radius: var(--radius-base);
   border: none;
   padding: 0;
   margin: 0;
