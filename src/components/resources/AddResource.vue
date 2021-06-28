@@ -33,9 +33,9 @@
 <script>
 import BaseButton from '../UI/BaseButton.vue';
 import BaseDialog from '../UI/BaseDialog.vue';
+
 export default {
   components: { BaseButton, BaseDialog },
-  inject: ['addResource'],
   data() {
     return {
       enteredTitle: '',
@@ -46,6 +46,9 @@ export default {
     };
   },
   methods: {
+    addResource(title, description, link) {
+      this.$store.commit('addResource', { title, description, link });
+    },
     submitData() {
       if (
         this.enteredTitle.trim() === '' ||

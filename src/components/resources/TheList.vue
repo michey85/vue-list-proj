@@ -1,15 +1,18 @@
 <template>
   <ul class="list">
-    <ListItem v-for="item in resources" :key="item" v-bind="item" />
+    <ListItem
+      v-for="item in $store.state.resources"
+      :key="item"
+      v-bind="item"
+    />
   </ul>
-  <h4 v-if="!resources.length">There is nothing here yet!</h4>
+  <h4 v-if="!$store.state.resources.length">There is nothing here yet!</h4>
 </template>
 
 <script>
 import ListItem from './ListItem.vue';
 
 export default {
-  inject: ['resources'],
   components: {
     ListItem,
   },

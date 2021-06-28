@@ -28,12 +28,17 @@ import BaseButton from '../UI/BaseButton.vue';
 import BaseIcon from '../UI/BaseIcon.vue';
 export default {
   components: { BaseButton, BaseIcon },
-  inject: ['removeResource'],
   props: {
-    id: Number,
+    id: String,
     title: String,
     description: String,
     link: String,
+  },
+  methods: {
+    removeResource(id) {
+      // TODO: добавить диалог с уточненением точно ли юзер хочет удалить ресурс
+      this.$store.commit('removeResource', id);
+    },
   },
 };
 </script>

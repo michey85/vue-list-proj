@@ -9,7 +9,7 @@
       >
     </base-card>
     <keep-alive>
-      <component :is="activeTab"></component>
+      <component :is="$store.state.activeTab"></component>
     </keep-alive>
   </div>
 </template>
@@ -23,59 +23,17 @@ export default {
     TheList,
     AddResource,
   },
-  data() {
-    return {
-      activeTab: 'the-list',
-      resources: [
-        {
-          id: 1,
-          title: 'Official Vue Guide',
-          description: 'Official Vue documentation. 9 languages.',
-          link: 'https://vuejs.org',
-        },
-        {
-          id: 2,
-          title: 'Google',
-          description: 'Most popular search engine. Try it when you need help.',
-          link: 'https://google.com',
-        },
-      ],
-    };
-  },
   computed: {
     listBtnMode() {
-      return this.activeTab === 'the-list' ? null : 'flat';
+      return this.$store.state.activeTab === 'the-list' ? null : 'flat';
     },
     addBtnMode() {
-      return this.activeTab === 'add-resource' ? null : 'flat';
+      return this.$store.state.activeTab === 'add-resource' ? null : 'flat';
     },
-  },
-  provide() {
-    return {
-      resources: this.resources,
-      addResource: this.addResource,
-      removeResource: this.removeResource,
-    };
   },
   methods: {
     setActiveTab(tab) {
-      this.activeTab = tab;
-    },
-    addResource(title, description, link) {
-      const newResource = {
-        id: Date.now().toLocaleString(),
-        title,
-        description,
-        link,
-      };
-
-      this.resources.unshift(newResource);
-      this.activeTab = 'the-list';
-    },
-    removeResource(id) {
-      // TODO: добавить диалог с уточненением точно ли юзер хочет удалить ресурс
-      const ind = this.resources.findIndex(el => el.id === id);
-      this.resources.splice(ind, 1);
+      this.$store.commit('setActiveTab', tab);
     },
   },
 };
