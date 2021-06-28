@@ -24,8 +24,11 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 import BaseButton from '../UI/BaseButton.vue';
 import BaseIcon from '../UI/BaseIcon.vue';
+
 export default {
   components: { BaseButton, BaseIcon },
   props: {
@@ -35,10 +38,7 @@ export default {
     link: String,
   },
   methods: {
-    removeResource(id) {
-      // TODO: добавить диалог с уточненением точно ли юзер хочет удалить ресурс
-      this.$store.commit('removeResource', id);
-    },
+    ...mapActions(['removeResource']),
   },
 };
 </script>

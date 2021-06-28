@@ -9,12 +9,14 @@
       >
     </base-card>
     <keep-alive>
-      <component :is="$store.state.activeTab"></component>
+      <component :is="activeTab"></component>
     </keep-alive>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 import TheList from './TheList.vue';
 import AddResource from './AddResource.vue';
 
@@ -24,17 +26,16 @@ export default {
     AddResource,
   },
   computed: {
+    ...mapGetters(['activeTab']),
     listBtnMode() {
-      return this.$store.state.activeTab === 'the-list' ? null : 'flat';
+      return this.activeTab === 'the-list' ? null : 'flat';
     },
     addBtnMode() {
-      return this.$store.state.activeTab === 'add-resource' ? null : 'flat';
+      return this.activeTab === 'add-resource' ? null : 'flat';
     },
   },
   methods: {
-    setActiveTab(tab) {
-      this.$store.commit('setActiveTab', tab);
-    },
+    ...mapActions(['setActiveTab']),
   },
 };
 </script>

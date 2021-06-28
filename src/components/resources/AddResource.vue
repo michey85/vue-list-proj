@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 import BaseButton from '../UI/BaseButton.vue';
 import BaseDialog from '../UI/BaseDialog.vue';
 
@@ -46,9 +48,8 @@ export default {
     };
   },
   methods: {
-    addResource(title, description, link) {
-      this.$store.commit('addResource', { title, description, link });
-    },
+    ...mapActions(['addResource']),
+
     submitData() {
       if (
         this.enteredTitle.trim() === '' ||
@@ -59,11 +60,11 @@ export default {
         return;
       }
 
-      this.addResource(
-        this.enteredTitle,
-        this.enteredDescription,
-        this.enteredLink
-      );
+      this.addResource({
+        title: this.enteredTitle,
+        description: this.enteredDescription,
+        link: this.enteredLink,
+      });
       this.$refs['new-resource-form'].reset();
     },
     closeDialog() {
